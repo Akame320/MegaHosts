@@ -1,0 +1,236 @@
+.header {
+  width: 100%;
+
+  position: absolute;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding-top: 26px;
+  padding-bottom: 26px;
+
+  background-color: transparent;
+
+  transition: all 0.2s linear;
+
+  color: white;
+
+  &.fixed{
+    position: fixed;
+    background-color: black;
+  }
+
+  &.active{
+    background-color: black;
+  }
+
+  &.active .header__navigation{
+    position: static;
+    visibility: visible;
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  &__container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    /*max-width 1100px*/
+    @media screen and (max-width: 1100px) {
+       justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+    max-width: 200px;
+
+    margin-right: 60px;
+
+    /*max-width 1100px*/
+    @media screen and (max-width: 1100px) {
+      max-width: 140px;
+    }
+    
+    .logo__img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__navigation{
+    /*max-width 1100px*/
+    @media screen and (max-width: 1100px) {
+      //display: none;
+      order: 3;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+      visibility: hidden;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      transform: translate(0, -35px);
+      opacity: 0;
+      transition: all 0.2s linear;
+    }
+    /*max-width 900px*/
+    @media screen and (max-width: 900px) {
+        justify-content: flex-start;
+    }
+  }
+  
+  &__navigation-list{
+    display: flex;
+
+    /*max-width 900px*/
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    li{
+      display: inline-block;
+      font-size: 1.6rem;
+      margin: 0 10 / 16 * 1em;
+      position: relative;
+
+      /*max-width 900px*/
+      @media screen and (max-width: 900px) {
+        width: max-content;
+        margin-bottom: 15px;
+      }
+
+      &:last-child{
+        /*max-width 900px*/
+        @media screen and (max-width: 900px) {
+          margin-bottom: 0;
+        }
+      }
+      
+      &:hover:after{
+        bottom: -5px;
+        opacity: 1;
+      }
+
+      &.active:after{
+        bottom: -5px;
+        opacity: 1;
+      }
+      
+      &:after{
+        content: "";
+
+        display: block;
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        opacity: 0;
+        transition: all 0.25s ease-in-out;
+      }
+    }
+
+    a{
+      color: inherit;
+      font-size: inherit;
+      text-decoration: none;
+      font-family: $OSM;
+    }
+  }
+  
+  &__burger{
+    width: 40px;
+    height: 20px;
+
+    position: relative;
+
+    font-size: 0;
+
+    display: none;
+
+    transition: all 0.2s linear;
+
+    &,
+    & *{
+      cursor: pointer;
+      outline: none;
+      border: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    &.active:after{
+      transform: rotate(45deg);
+      top: 50%;
+      bottom: auto;
+    }
+
+    &.active:before{
+      transform: rotate(-45deg);
+      top: 50%;
+      bottom: auto;
+    }
+
+    &.active button{
+      opacity: 0;
+      transform: translate(10px, -50%);
+    }
+
+    /*max-width 1100px*/
+    @media screen and (max-width: 1100px) {
+      display: block;
+      order: 2;
+    }
+
+    &:after,
+    &:before{
+      content: "";
+
+      width: 100%;
+      height: 2px;
+      display: block;
+      background-color: #fff;
+      position: absolute;
+      left: 0;
+      right: 0;
+
+      transition: all 0.2s linear;
+    }
+
+    &:after{
+      top: auto;
+      bottom: 0;
+    }
+
+    &:before{
+      top: 0;
+    }
+
+    button{
+      width: 30px;
+      height: 2px;
+      background-color: #fff;
+
+      display: block;
+
+      border: none;
+
+      position: absolute;
+      top: 50%;
+      left: auto;
+      right: 0;
+      transform: translateY(-50%);
+
+      font-size: inherit;
+    }
+  }
+}
+

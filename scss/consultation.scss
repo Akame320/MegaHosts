@@ -1,0 +1,123 @@
+.consultation {
+
+  .title {
+    max-width: 850px;
+    width: 100%;
+
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+
+    text-align: center;
+
+    /*max-width 850px*/
+    @media screen and (max-width: 850px) {
+      max-width: 660px;
+    }
+  }
+
+  &__container {
+    padding: 61px 15px 36px;
+    box-shadow: 0px 15px 57px 0px rgba(0, 0, 0, 0.17);
+  }
+
+  &__form {
+    width: 100%;
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    /*max-width 850px*/
+    @media screen and (max-width: 850px) {
+       flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+    }
+  }
+
+  &__input-wrapper {
+    width: 297 / 765 * 100%;
+
+    position: relative;
+
+    /*max-width 850px*/
+    @media screen and (max-width: 850px) {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: 350px;
+      margin-bottom: 50px;
+    }
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    &.submit {
+      width: 136 / 765 * 100%;
+      
+      /*max-width 850px*/
+      @media screen and (max-width: 850px) {
+        width: 100%;
+        max-width: 350px;
+        margin-top: -20px;
+      }
+    }
+
+    &:before {
+
+      display: block;
+
+      color: black;
+
+      position: absolute;
+      left: 11px;
+      top: -25px;
+
+      font-size: 13px;
+
+      font-weight: 400;
+      font-family: $MNT;
+    }
+
+    &.--name:before {
+      content: "Имя*";
+    }
+
+    &.--email:before {
+      content: "Email*";
+    }
+  }
+
+  &__input {
+
+  }
+
+  &__police {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 510px;
+
+    font-size: 12px;
+
+    margin-top: 30px;
+
+    font-family: $MNT;
+
+    color: #808080;
+
+    /*max-width 850px*/
+    @media screen and (max-width: 850px) {
+      max-width: 350px;
+      text-align: center;
+    }
+
+    a {
+      color: #808080;
+    }
+  }
+
+}
